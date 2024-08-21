@@ -28003,19 +28003,22 @@ input[type=checkbox].three-state-checkbox + .control-label {
   margin-top: 8px;
 }
 
-.card-container-conversationstarter {
+.card-container-conversationstarter--vertical {
   margin-top: 20%;
 }
 
-.card-container-conversationstarter--fullpage .mx-layoutgrid {
+.card-container-conversationstarter--horizontal {
+  margin-top: 20%;
+}
+.card-container-conversationstarter--horizontal .mx-layoutgrid {
   height: 100%;
 }
-.card-container-conversationstarter--fullpage .mx-layoutgrid > .row .col > .card {
+.card-container-conversationstarter--horizontal .mx-layoutgrid > .row .col > .card {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-.card-container-conversationstarter--fullpage .conversationstarter-arrow {
+.card-container-conversationstarter--horizontal .conversationstarter-arrow {
   display: none;
 }
 

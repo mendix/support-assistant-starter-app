@@ -30,7 +30,6 @@
     margin-bottom: $spacing-small;
     padding: $spacing-small;
     border: 1px solid $brand-default;
-    //height: 100%;
     position: relative;
 
     &:hover {
@@ -49,12 +48,12 @@
 } 
 
 //Card container for ConversationStarters
-.card-container-conversationstarter {
+.card-container-conversationstarter--vertical {
     margin-top: 20%;
 }
 
-.card-container-conversationstarter--fullpage {
-
+.card-container-conversationstarter--horizontal {
+    margin-top: 20%;
     .mx-layoutgrid {
         height: 100%;
 
