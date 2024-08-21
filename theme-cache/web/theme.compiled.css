@@ -27969,4 +27969,54 @@ input[type=checkbox].three-state-checkbox + .control-label {
   border-width: 0;
 }
 
+.gallery-hide-paging .widget-gallery-footer {
+  display: none;
+}
+
+.mx-layoutgrid.card-container > .row {
+  padding-bottom: 24px;
+}
+.mx-layoutgrid.card-container > .row .col > .card {
+  height: 100%;
+  margin-bottom: 0px;
+}
+.mx-layoutgrid.card-container > .row .col > .card .widget-datagrid {
+  margin-right: -24px;
+  margin-left: -24px;
+}
+
+.card-conversationstarter.card {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #e7e7e9;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-conversationstarter.card:hover {
+  background-color: #f5f6f6;
+}
+.card-conversationstarter.card .mx-link {
+  color: #264ae5;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.card-container-conversationstarter {
+  margin-top: 20%;
+}
+
+.card-container-conversationstarter--fullpage .mx-layoutgrid {
+  height: 100%;
+}
+.card-container-conversationstarter--fullpage .mx-layoutgrid > .row .col > .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.card-container-conversationstarter--fullpage .conversationstarter-arrow {
+  display: none;
+}
+
 /*# sourceMappingURL=theme.compiled.css.map */
