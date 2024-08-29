@@ -1,2 +1,108 @@
 @import '../../../theme/web/custom-variables';
 
+
+.ticket-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    &>* {
+        min-width: 50vw;
+        height: 100%;
+        margin-left: auto;
+    }
+}
+
+.chatbot-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    &>* {
+        min-width: 20vw;
+        height: 100%;
+        width: auto;
+        margin-right: auto;
+    }
+}
+
+.ticket {
+    border: 1px solid $brand-default;
+    border-radius: $border-radius-default;
+    margin-bottom: $spacing-small;
+    padding: $spacing-medium;
+
+    .btn {
+        font-size: $btn-font-size * 1.5;
+        padding: 0;
+        border: 1px solid $brand-default;
+
+        .mx-icon-lined {
+            margin: $spacing-small;
+        }
+    }
+
+    .card-title {
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .row>div * {
+        margin: 0;
+
+    }
+
+    .mx-link {
+        color: $font-color-default;
+        font-size: $font-size-large;
+    }
+}
+
+
+
+.badge {
+    &.badge--primary-light {
+        background-color: rgba($brand-primary, 0.80);
+    }
+
+    &.badge--primary-lighter {
+        background-color: rgba($brand-primary, 0.60);
+    }
+
+    &.badge--warning-light {
+        background-color: rgba($brand-warning, 0.80);
+        color: rgba($font-color-default, 0.8);
+    }
+
+    &.badge--warning-lighter {
+        background-color: rgba($brand-warning, 0.60);
+        color: rgba($font-color-default, 0.8);
+    }
+}
+
+
+.btn {
+    &.btn--primary-light {
+        background-color: rgba($brand-primary, 0.90);
+        color: $btn-inverse-color;
+    }
+
+    &.btn--primary-lighter {
+        background-color: rgba($brand-primary, 0.60);
+        color: $btn-inverse-color;
+    }
+
+    &.btn--primary-lightest {
+        background-color: rgba($brand-primary, 0.40);
+        color: $btn-inverse-color;
+    }
+
+    &.btn--warning-light {
+        background-color: rgba($brand-warning, 0.80);
+        color: $btn-inverse-color;
+    }
+}
