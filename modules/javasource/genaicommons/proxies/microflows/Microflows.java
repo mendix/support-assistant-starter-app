@@ -425,6 +425,9 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.FileContent.initialize(context, (IMendixObject) result);
 	}
+	/**
+	 * Either a FileDocument or an URL needs to be provided. All available attributes are set an the FileContent is added to the FileCollection.
+	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fileContent_SetAttributesBuilder(
 		genaicommons.proxies.FileContent _fileContent,
 		genaicommons.proxies.FileCollection _fileCollection,
@@ -444,6 +447,9 @@ public final class Microflows
 		return builder;
 	}
 
+	/**
+	 * Either a FileDocument or an URL needs to be provided. All available attributes are set an the FileContent is added to the FileCollection.
+	 */
 	public static void fileContent_SetAttributes(
 		IContext context,
 		genaicommons.proxies.FileContent _fileContent,
