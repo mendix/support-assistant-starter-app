@@ -1,15 +1,23 @@
 @import '../../../theme/web/custom-variables';
 
+.ticket-overview-container{
+    height: 100%;
+    display: flex; 
+    align-items: center; 
+    flex-flow: row; 
+    justify-content: center; 
+}
 
 .ticket-container {
-    width: 100%;
+    width:100%;
+    max-width: 960px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
 
     &>* {
-        min-width: 50vw;
+        width: 100%;
         height: 100%;
         margin-left: auto;
     }
@@ -17,15 +25,16 @@
 
 .chatbot-container {
     width: 100%;
+    max-width:480px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
+    margin-left: $spacing-medium;
 
     &>* {
-        min-width: 20vw;
         height: 100%;
-        width: auto;
+        width: 100%;
         margin-right: auto;
     }
 }
@@ -50,7 +59,7 @@
         text-wrap: nowrap;
         text-overflow: ellipsis;
     }
-
+    > * {padding: 0;}
     .row>div * {
         margin: 0;
 

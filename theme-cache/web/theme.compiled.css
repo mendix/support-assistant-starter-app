@@ -28006,30 +28006,40 @@ input[type=checkbox].three-state-checkbox + .control-label {
   border-width: 0;
 }
 
+.ticket-overview-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  justify-content: center;
+}
+
 .ticket-container {
   width: 100%;
+  max-width: 960px;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
 }
 .ticket-container > * {
-  min-width: 50vw;
+  width: 100%;
   height: 100%;
   margin-left: auto;
 }
 
 .chatbot-container {
   width: 100%;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
+  margin-left: 16px;
 }
 .chatbot-container > * {
-  min-width: 20vw;
   height: 100%;
-  width: auto;
+  width: 100%;
   margin-right: auto;
 }
 
@@ -28050,6 +28060,9 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .ticket .card-title {
   text-wrap: nowrap;
   text-overflow: ellipsis;
+}
+.ticket > * {
+  padding: 0;
 }
 .ticket .row > div * {
   margin: 0;
