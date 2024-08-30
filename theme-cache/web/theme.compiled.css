@@ -28021,11 +28021,11 @@ input[type=checkbox].three-state-checkbox + .control-label {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  margin-bottom: 0;
 }
 .ticket-container > * {
   width: 100%;
   height: 100%;
-  margin-left: auto;
 }
 
 .chatbot-container {
@@ -28037,10 +28037,20 @@ input[type=checkbox].three-state-checkbox + .control-label {
   height: 100%;
   margin-left: 16px;
 }
-.chatbot-container > * {
-  height: 100%;
+
+.chat-container-header {
+  padding: 0px;
   width: 100%;
-  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e7e7e9;
+}
+
+.btn-chat-header {
+  margin-bottom: 16px;
+  margin-left: 16px;
 }
 
 .ticket {
