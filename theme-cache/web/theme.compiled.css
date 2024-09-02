@@ -28036,10 +28036,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
   align-items: center;
   height: 100%;
   margin-left: 16px;
+  margin-bottom: 0;
 }
 .chatbot-container > * {
   width: 100%;
-  height: 100%;
 }
 
 .chat-container-header {
@@ -28122,6 +28122,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .chat-bubble-wrapper--user .chat-message-card {
   background: #e7e7e9;
   border-radius: 8px 0 8px 8px;
+}
+
+.chat-container .messages-container {
+  flex: 1 1 0px;
 }
 
 .gallery-hide-paging .widget-gallery-footer {
