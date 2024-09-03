@@ -28027,6 +28027,26 @@ input[type=checkbox].three-state-checkbox + .control-label {
   width: 100%;
   height: 100%;
 }
+.ticket-container .mx-dataview-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ticket-container .mx-dataview-content .row {
+  height: auto;
+}
+
+.btn-container {
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #e7e7e9;
+}
+.btn-container .btn {
+  margin-left: 8px;
+  margin-top: 16px;
+}
 
 .chatbot-container {
   width: 100%;
