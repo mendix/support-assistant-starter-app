@@ -167,14 +167,14 @@
 .chat-bubble-wrapper {
     .chat-message-card {
         background: $bg-color-secondary;
-        border-radius: 0px 8px 8px 8px;
+        border-radius: 8px;
         border: 1px solid $brand-default;
         padding: $spacing-medium;
     }
 
     &--user .chat-message-card {
-        background: $brand-default;
-        border-radius: 8px 0px 8px 8px;
+        background: $gray-lighter;
+        border: 1px solid $gray-lighter;
     }
 }
 
