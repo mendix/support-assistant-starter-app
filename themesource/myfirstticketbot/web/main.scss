@@ -64,9 +64,12 @@
     &>* {
         width: 100%;
     }
-
+    
 }
 
+.chat-container .messages-container {
+    flex: 1 1 0px;
+}
 
 .chat-container-header {
     padding: 0px;
@@ -176,9 +179,4 @@
         background: $gray-lighter;
         border: 1px solid $gray-lighter;
     }
-}
-
-
-.chat-container .messages-container {
-    flex: 1 1 0px;
 }
