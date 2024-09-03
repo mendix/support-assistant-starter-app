@@ -166,13 +166,14 @@
 //customizations on conversational UI
 .chat-bubble-wrapper {
     .chat-message-card {
-        background: $gray-lighter;
-        border-radius: 0 8px 8px 8px;
+        background: $bg-color-secondary;
+        border-radius: 0px 8px 8px 8px;
+        border: 1px solid $brand-default;
     }
 
     &--user .chat-message-card {
-        background: $gray-primary;
-        border-radius: 8px 0 8px 8px;
+        background: $brand-default;
+        border-radius: 8px 0px 8px 8px;
     }
 }
 
