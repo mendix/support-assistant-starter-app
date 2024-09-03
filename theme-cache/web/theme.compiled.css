@@ -28139,6 +28139,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   background: #fff;
   border-radius: 0px 8px 8px 8px;
   border: 1px solid #e7e7e9;
+  padding: 16px;
 }
 .chat-bubble-wrapper--user .chat-message-card {
   background: #e7e7e9;
