@@ -37,12 +37,19 @@
 }
 
 
+.scroll-container {
+    flex: 1 1 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
 .btn-container {
     width: 100%;
     margin-top: auto;
     display: flex;
     justify-content: flex-end;
-    border-top: 1px solid $brand-default;
+    border-top: 1px solid $border-color-default;
 
     .btn {
         margin-left: $spacing-small;
@@ -64,14 +71,17 @@
     &>* {
         width: 100%;
     }
-
+    
 }
 
+.chat-container .messages-container {
+    flex: 1 1 0px;
+}
 
 .chat-container-header {
     padding: 0px;
     width: 100%;
-    border-bottom: 1px solid $brand-default;
+    border-bottom: 1px solid $border-color-default;
 }
 
 
@@ -83,7 +93,7 @@
 
 
 .ticket {
-    border: 1px solid $brand-default;
+    border: 1px solid $border-color-default;
     border-radius: $border-radius-default;
     margin-bottom: $spacing-small;
     padding: $spacing-medium;
@@ -91,7 +101,7 @@
     .btn {
         font-size: $btn-font-size * 1.5;
         padding: 0;
-        border: 1px solid $brand-default;
+        border: 1px solid $border-color-default;
 
         .mx-icon-lined {
             margin: $spacing-small;
@@ -167,17 +177,13 @@
 .chat-bubble-wrapper {
     .chat-message-card {
         background: $bg-color-secondary;
-        border-radius: 0px 8px 8px 8px;
-        border: 1px solid $brand-default;
+        border-radius: 8px;
+        border: 1px solid $border-color-default;
+        padding: $spacing-medium;
     }
 
     &--user .chat-message-card {
-        background: $brand-default;
-        border-radius: 8px 0px 8px 8px;
+        background: $gray-lighter;
+        border: 1px solid $gray-lighter;
     }
-}
-
-
-.chat-container .messages-container {
-    flex: 1 1 0px;
 }
