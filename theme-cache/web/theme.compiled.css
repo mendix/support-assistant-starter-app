@@ -28006,6 +28006,38 @@ input[type=checkbox].three-state-checkbox + .control-label {
   border-width: 0;
 }
 
+.badge.badge--primary-light {
+  background-color: rgba(38, 74, 229, 0.9);
+}
+.badge.badge--primary-lighter {
+  background-color: rgba(38, 74, 229, 0.6);
+}
+.badge.badge--warning-light {
+  background-color: rgba(236, 165, 28, 0.9);
+  color: rgba(10, 19, 37, 0.8);
+}
+.badge.badge--warning-lighter {
+  background-color: rgba(236, 165, 28, 0.6);
+  color: rgba(10, 19, 37, 0.8);
+}
+
+.btn.btn--primary-light {
+  background-color: rgba(38, 74, 229, 0.9);
+  color: #fff;
+}
+.btn.btn--primary-lighter {
+  background-color: rgba(38, 74, 229, 0.6);
+  color: #fff;
+}
+.btn.btn--warning-light {
+  background-color: rgba(236, 165, 28, 0.9);
+  color: #fff;
+}
+.btn.btn--warning-lighter {
+  background-color: rgba(236, 165, 28, 0.6);
+  color: #fff;
+}
+
 .ticket-overview-container {
   height: 100%;
   display: flex;
@@ -28091,38 +28123,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .btn-container .btn {
   margin-left: 8px;
   margin-top: 16px;
-}
-
-.badge.badge--primary-light {
-  background-color: rgba(38, 74, 229, 0.8);
-}
-.badge.badge--primary-lighter {
-  background-color: rgba(38, 74, 229, 0.6);
-}
-.badge.badge--warning-light {
-  background-color: rgba(236, 165, 28, 0.8);
-  color: rgba(10, 19, 37, 0.8);
-}
-.badge.badge--warning-lighter {
-  background-color: rgba(236, 165, 28, 0.6);
-  color: rgba(10, 19, 37, 0.8);
-}
-
-.btn.btn--primary-light {
-  background-color: rgba(38, 74, 229, 0.9);
-  color: #fff;
-}
-.btn.btn--primary-lighter {
-  background-color: rgba(38, 74, 229, 0.6);
-  color: #fff;
-}
-.btn.btn--primary-lightest {
-  background-color: rgba(38, 74, 229, 0.4);
-  color: #fff;
-}
-.btn.btn--warning-light {
-  background-color: rgba(236, 165, 28, 0.8);
-  color: #fff;
 }
 
 .chat-bubble-wrapper .chat-message-card {
