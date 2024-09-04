@@ -28036,6 +28036,12 @@ input[type=checkbox].three-state-checkbox + .control-label {
   height: auto;
 }
 
+.scroll-container {
+  flex: 1 1 0px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .btn-container {
   width: 100%;
   margin-top: auto;
