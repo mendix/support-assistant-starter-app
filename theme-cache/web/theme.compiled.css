@@ -28062,6 +28062,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
   width: 100%;
 }
 
+.chat-container .messages-container {
+  flex: 1 1 0px;
+}
+
 .chat-container-header {
   padding: 0px;
   width: 100%;
@@ -28144,10 +28148,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .chat-bubble-wrapper--user .chat-message-card {
   background: #f8f8f8;
   border: 1px solid #f8f8f8;
-}
-
-.chat-container .messages-container {
-  flex: 1 1 0px;
 }
 
 .gallery-hide-paging .widget-gallery-footer {
