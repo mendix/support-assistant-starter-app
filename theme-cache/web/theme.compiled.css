@@ -28017,14 +28017,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .ticket-container {
   width: 100%;
   max-width: 960px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   height: 100%;
   margin-bottom: 0;
 }
 .ticket-container > * {
-  width: 100%;
   height: 100%;
 }
 .ticket-container .mx-dataview-content {
@@ -28032,44 +28028,15 @@ input[type=checkbox].three-state-checkbox + .control-label {
   display: flex;
   flex-direction: column;
 }
-.ticket-container .mx-dataview-content .row {
-  height: auto;
-}
-
-.scroll-container {
-  flex: 1 1 0px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.btn-container {
-  width: 100%;
-  margin-top: auto;
-  display: flex;
-  justify-content: flex-end;
-  border-top: 1px solid #ced0d3;
-}
-.btn-container .btn {
-  margin-left: 8px;
-  margin-top: 16px;
-}
 
 .chatbot-container {
   width: 100%;
   max-width: 480px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 100%;
   margin-left: 16px;
   margin-bottom: 0;
-}
-.chatbot-container > * {
-  width: 100%;
-}
-
-.chat-container .messages-container {
-  flex: 1 1 0px;
 }
 
 .chat-container-header {
@@ -28086,7 +28053,6 @@ input[type=checkbox].three-state-checkbox + .control-label {
 
 .ticket {
   border: 1px solid #ced0d3;
-  border-radius: 4px;
   margin-bottom: 8px;
   padding: 16px;
 }
@@ -28102,15 +28068,29 @@ input[type=checkbox].three-state-checkbox + .control-label {
   text-wrap: nowrap;
   text-overflow: ellipsis;
 }
-.ticket > * {
-  padding: 0;
-}
-.ticket .row > div * {
+.ticket .row > div > * {
   margin: 0;
 }
 .ticket .mx-link {
   color: #0a1325;
   font-size: 18px;
+}
+
+.scroll-container {
+  flex: 1 1 0px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.btn-container {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #ced0d3;
+}
+.btn-container .btn {
+  margin-left: 8px;
+  margin-top: 16px;
 }
 
 .badge.badge--primary-light {
@@ -28158,6 +28138,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
 
 .btn-chat-popup {
   right: calc(50vw - 720px);
+}
+
+.chat-container .messages-container {
+  flex: 1 1 0px;
 }
 
 .gallery-hide-paging .widget-gallery-footer {
