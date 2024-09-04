@@ -28041,7 +28041,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   margin-top: auto;
   display: flex;
   justify-content: flex-end;
-  border-top: 1px solid #e7e7e9;
+  border-top: 1px solid #ced0d3;
 }
 .btn-container .btn {
   margin-left: 8px;
@@ -28069,7 +28069,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .chat-container-header {
   padding: 0px;
   width: 100%;
-  border-bottom: 1px solid #e7e7e9;
+  border-bottom: 1px solid #ced0d3;
 }
 
 .btn-chat-header {
@@ -28079,7 +28079,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
 }
 
 .ticket {
-  border: 1px solid #e7e7e9;
+  border: 1px solid #ced0d3;
   border-radius: 4px;
   margin-bottom: 8px;
   padding: 16px;
@@ -28087,7 +28087,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .ticket .btn {
   font-size: 21px;
   padding: 0;
-  border: 1px solid #e7e7e9;
+  border: 1px solid #ced0d3;
 }
 .ticket .btn .mx-icon-lined {
   margin: 8px;
@@ -28142,7 +28142,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .chat-bubble-wrapper .chat-message-card {
   background: #fff;
   border-radius: 8px;
-  border: 1px solid #e7e7e9;
+  border: 1px solid #ced0d3;
   padding: 16px;
 }
 .chat-bubble-wrapper--user .chat-message-card {
