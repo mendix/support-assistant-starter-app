@@ -42,7 +42,7 @@
     margin-top: auto;
     display: flex;
     justify-content: flex-end;
-    border-top: 1px solid $brand-default;
+    border-top: 1px solid $border-color-default;
 
     .btn {
         margin-left: $spacing-small;
@@ -74,7 +74,7 @@
 .chat-container-header {
     padding: 0px;
     width: 100%;
-    border-bottom: 1px solid $brand-default;
+    border-bottom: 1px solid $border-color-default;
 }
 
 
@@ -86,7 +86,7 @@
 
 
 .ticket {
-    border: 1px solid $brand-default;
+    border: 1px solid $border-color-default;
     border-radius: $border-radius-default;
     margin-bottom: $spacing-small;
     padding: $spacing-medium;
@@ -94,7 +94,7 @@
     .btn {
         font-size: $btn-font-size * 1.5;
         padding: 0;
-        border: 1px solid $brand-default;
+        border: 1px solid $border-color-default;
 
         .mx-icon-lined {
             margin: $spacing-small;
@@ -171,7 +171,7 @@
     .chat-message-card {
         background: $bg-color-secondary;
         border-radius: 8px;
-        border: 1px solid $brand-default;
+        border: 1px solid $border-color-default;
         padding: $spacing-medium;
     }
 
