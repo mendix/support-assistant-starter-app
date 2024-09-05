@@ -5,8 +5,8 @@
 /.mendix-cache/
 /.classpath
 /.project
-/ticketbot starter app.mpr.bak
-/ticketbot starter app.mpr.lock
+/support assistant starter app.mpr.bak
+/support assistant starter app.mpr.lock
 /modeler-merge-marker
 /project-settings.user.json
 /javasource/*/proxies/
