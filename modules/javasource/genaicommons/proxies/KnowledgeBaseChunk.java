@@ -65,8 +65,8 @@ public class KnowledgeBaseChunk extends genaicommons.proxies.Chunk
 	 */
 	public static genaicommons.proxies.KnowledgeBaseChunk initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("MyFirstTicketBot.TicketChunk", mendixObject.getType())) {
-			return myfirstticketbot.proxies.TicketChunk.initialize(context, mendixObject);
+		if (com.mendix.core.Core.isSubClassOf("MyFirstSupportAssistant.TicketChunk", mendixObject.getType())) {
+			return myfirstsupportassistant.proxies.TicketChunk.initialize(context, mendixObject);
 		}
 		return new genaicommons.proxies.KnowledgeBaseChunk(context, mendixObject);
 	}
