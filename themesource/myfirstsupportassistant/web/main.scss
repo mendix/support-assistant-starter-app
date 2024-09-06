@@ -190,5 +190,6 @@ $brand-warning-lighter: rgba($brand-warning, 0.60);
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  line-clamp: 1;
   text-wrap: wrap !important;
 }
