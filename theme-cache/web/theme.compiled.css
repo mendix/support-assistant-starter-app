@@ -28144,6 +28144,15 @@ input[type=checkbox].three-state-checkbox + .control-label {
   flex: 1 1 0px;
 }
 
+.text-clamp--1-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-wrap: wrap !important;
+}
+
 .gallery-hide-paging .widget-gallery-footer {
   display: none;
 }

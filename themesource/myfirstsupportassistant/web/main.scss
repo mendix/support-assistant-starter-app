@@ -183,3 +183,12 @@ $brand-warning-lighter: rgba($brand-warning, 0.60);
 .chat-container .messages-container {
     flex: 1 1 0px;
 }
+
+.text-clamp--1-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-wrap: wrap !important;
+}
