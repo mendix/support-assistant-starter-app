@@ -5,7 +5,7 @@
 package genaicommons.proxies;
 
 /**
- * The Connection entitiy is a required input parameter for all operations.
+ * The Connection entity used to be input parameter for Chat completions, Embeddings and Image Generation operations but got replaced by DeployedModel. It is currently only used as a connection entitiy for KnowledgeBase interactions.
  */
 public class Connection implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
@@ -17,27 +17,6 @@ public class Connection implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * Internal name of this entity
 	 */
 	public static final java.lang.String entityName = "GenAICommons.Connection";
-
-	/**
-	 * Enum describing members of this entity
-	 */
-	public enum MemberNames
-	{
-		Model("Model");
-
-		private final java.lang.String metaName;
-
-		MemberNames(java.lang.String s)
-		{
-			metaName = s;
-		}
-
-		@java.lang.Override
-		public java.lang.String toString()
-		{
-			return metaName;
-		}
-	}
 
 	public Connection(com.mendix.systemwideinterfaces.core.IContext context)
 	{
@@ -66,17 +45,11 @@ public class Connection implements com.mendix.systemwideinterfaces.core.IEntityP
 	 */
 	public static genaicommons.proxies.Connection initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("AmazonBedrockConnector.AmazonBedrockConnection", mendixObject.getType())) {
-			return amazonbedrockconnector.proxies.AmazonBedrockConnection.initialize(context, mendixObject);
-		}
-		if (com.mendix.core.Core.isSubClassOf("OpenAIConnector.OpenAIConnection", mendixObject.getType())) {
-			return openaiconnector.proxies.OpenAIConnection.initialize(context, mendixObject);
+		if (com.mendix.core.Core.isSubClassOf("MxGenAIConnector.MxKnowledgeBaseConnection", mendixObject.getType())) {
+			return mxgenaiconnector.proxies.MxKnowledgeBaseConnection.initialize(context, mendixObject);
 		}
 		if (com.mendix.core.Core.isSubClassOf("PgVectorKnowledgeBase.PgVectorKnowledgeBaseConnection", mendixObject.getType())) {
 			return pgvectorknowledgebase.proxies.PgVectorKnowledgeBaseConnection.initialize(context, mendixObject);
-		}
-		if (com.mendix.core.Core.isSubClassOf("SynthiaConnector.SynthiaConnection", mendixObject.getType())) {
-			return synthiaconnector.proxies.SynthiaConnection.initialize(context, mendixObject);
 		}
 		return new genaicommons.proxies.Connection(context, mendixObject);
 	}
@@ -85,42 +58,6 @@ public class Connection implements com.mendix.systemwideinterfaces.core.IEntityP
 	{
 		com.mendix.systemwideinterfaces.core.IMendixObject mendixObject = com.mendix.core.Core.retrieveId(context, mendixIdentifier);
 		return genaicommons.proxies.Connection.initialize(context, mendixObject);
-	}
-
-	/**
-	 * @return value of Model
-	 */
-	public final java.lang.String getModel()
-	{
-		return getModel(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of Model
-	 */
-	public final java.lang.String getModel(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Model.toString());
-	}
-
-	/**
-	 * Set value of Model
-	 * @param model
-	 */
-	public final void setModel(java.lang.String model)
-	{
-		setModel(getContext(), model);
-	}
-
-	/**
-	 * Set value of Model
-	 * @param context
-	 * @param model
-	 */
-	public final void setModel(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String model)
-	{
-		getMendixObject().setValue(context, MemberNames.Model.toString(), model);
 	}
 
 	@java.lang.Override

@@ -26,28 +26,25 @@ public class Request_ExecuteFromConnector extends CustomJavaAction<IMendixObject
 	@java.lang.Deprecated(forRemoval = true)
 	private final IMendixObject __Request;
 	private final genaicommons.proxies.Request Request;
-	/** @deprecated use Connection.getMendixObject() instead. */
+	/** @deprecated use DeployedModel.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __Connection;
-	private final genaicommons.proxies.Connection Connection;
+	private final IMendixObject __DeployedModel;
+	private final genaicommons.proxies.DeployedModel DeployedModel;
 	private final java.lang.String CallModelMicroflow;
-	private final java.lang.String DeploymentIdentifier;
 
 	public Request_ExecuteFromConnector(
 		IContext context,
 		IMendixObject _request,
-		IMendixObject _connection,
-		java.lang.String _callModelMicroflow,
-		java.lang.String _deploymentIdentifier
+		IMendixObject _deployedModel,
+		java.lang.String _callModelMicroflow
 	)
 	{
 		super(context);
 		this.__Request = _request;
 		this.Request = _request == null ? null : genaicommons.proxies.Request.initialize(getContext(), _request);
-		this.__Connection = _connection;
-		this.Connection = _connection == null ? null : genaicommons.proxies.Connection.initialize(getContext(), _connection);
+		this.__DeployedModel = _deployedModel;
+		this.DeployedModel = _deployedModel == null ? null : genaicommons.proxies.DeployedModel.initialize(getContext(), _deployedModel);
 		this.CallModelMicroflow = _callModelMicroflow;
-		this.DeploymentIdentifier = _deploymentIdentifier;
 	}
 
 	@java.lang.Override

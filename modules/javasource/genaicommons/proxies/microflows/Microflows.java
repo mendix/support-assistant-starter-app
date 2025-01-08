@@ -18,7 +18,7 @@ public final class Microflows
 	// These are the microflows for the GenAICommons module
 	/**
 	 * Can be used to trigger the scheduled event ScE_Usage_Cleanup logic manually.
-	 * This is a cleanup of Usage data (token monitor). This microflow is used in the ScE with the same name. This can be toggled on/off in the Mendix Cloud portal per environment. It runs daily at 12:00AM UTC.
+	 * This is a cleanup of Usage data (token consumption monitor). This microflow is used in the ScE with the same name. This can be toggled on/off in the Mendix Cloud portal per environment. It runs daily at 12:00AM UTC.
 	 * See constant @ConversationalUI.Usage_CleanUpAfterDays for more information.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Usage_Cleanup_TriggerScEBuilder()
@@ -29,7 +29,7 @@ public final class Microflows
 
 	/**
 	 * Can be used to trigger the scheduled event ScE_Usage_Cleanup logic manually.
-	 * This is a cleanup of Usage data (token monitor). This microflow is used in the ScE with the same name. This can be toggled on/off in the Mendix Cloud portal per environment. It runs daily at 12:00AM UTC.
+	 * This is a cleanup of Usage data (token consumption monitor). This microflow is used in the ScE with the same name. This can be toggled on/off in the Mendix Cloud portal per environment. It runs daily at 12:00AM UTC.
 	 * See constant @ConversationalUI.Usage_CleanUpAfterDays for more information.
 	 */
 	public static void aCT_Usage_Cleanup_TriggerScE(IContext context)
@@ -51,6 +51,88 @@ public final class Microflows
 	public static void aCT_Usage_CleanupAll(IContext context)
 	{
 		aCT_Usage_CleanupAllBuilder().execute(context);
+	}
+	/**
+	 * Action can be used to invoke a chat completions API with a request containing a list of (historical) messages comprising the conversation so far. This action is provider agnostic and will execute the microflow that is saved on the object as "Microflow" attribute.
+	 * - Request: Contains messages and optional attributes.
+	 * - DeployedModel: The DeployedModel entity replaces the Connection entity. It contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Text.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chatCompletions_WithHistoryBuilder(
+		genaicommons.proxies.Request _request,
+		genaicommons.proxies.DeployedModel _deployedModel
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ChatCompletions_WithHistory");
+		builder = builder.withParam("Request", _request);
+		builder = builder.withParam("DeployedModel", _deployedModel);
+		return builder;
+	}
+
+	/**
+	 * Action can be used to invoke a chat completions API with a request containing a list of (historical) messages comprising the conversation so far. This action is provider agnostic and will execute the microflow that is saved on the object as "Microflow" attribute.
+	 * - Request: Contains messages and optional attributes.
+	 * - DeployedModel: The DeployedModel entity replaces the Connection entity. It contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Text.
+	 */
+	public static genaicommons.proxies.Response chatCompletions_WithHistory(
+		IContext context,
+		genaicommons.proxies.Request _request,
+		genaicommons.proxies.DeployedModel _deployedModel
+	)
+	{
+		Object result = chatCompletions_WithHistoryBuilder(
+				_request,
+				_deployedModel
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Response.initialize(context, (IMendixObject) result);
+	}
+	/**
+	 * Microflow can be used to invoke a chat completions API with a simple request where only a single user message is sent. If you want to send multiple historical user or assistant messages, use the Request_ChatCompletions_WithHistory java action from GenAI commons.
+	 * Inputs:
+	 * - UserPrompt: The input of the user.
+	 * - DeployedModel: The DeployedModel entity replaces the Connection entity. It contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Text.
+	 * - OptionalRequest: Contains optional attributes.
+	 * - FileCollection (optional): An optional collection of files to be sent along with the UserPrompt to use Vision or Document Chat.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chatCompletions_WithoutHistoryBuilder(
+		genaicommons.proxies.DeployedModel _deployedModel,
+		java.lang.String _userPrompt,
+		genaicommons.proxies.FileCollection _optionalFileCollection,
+		genaicommons.proxies.Request _optionalRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.ChatCompletions_WithoutHistory");
+		builder = builder.withParam("DeployedModel", _deployedModel);
+		builder = builder.withParam("UserPrompt", _userPrompt);
+		builder = builder.withParam("OptionalFileCollection", _optionalFileCollection);
+		builder = builder.withParam("OptionalRequest", _optionalRequest);
+		return builder;
+	}
+
+	/**
+	 * Microflow can be used to invoke a chat completions API with a simple request where only a single user message is sent. If you want to send multiple historical user or assistant messages, use the Request_ChatCompletions_WithHistory java action from GenAI commons.
+	 * Inputs:
+	 * - UserPrompt: The input of the user.
+	 * - DeployedModel: The DeployedModel entity replaces the Connection entity. It contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Text.
+	 * - OptionalRequest: Contains optional attributes.
+	 * - FileCollection (optional): An optional collection of files to be sent along with the UserPrompt to use Vision or Document Chat.
+	 */
+	public static genaicommons.proxies.Response chatCompletions_WithoutHistory(
+		IContext context,
+		genaicommons.proxies.DeployedModel _deployedModel,
+		java.lang.String _userPrompt,
+		genaicommons.proxies.FileCollection _optionalFileCollection,
+		genaicommons.proxies.Request _optionalRequest
+	)
+	{
+		Object result = chatCompletions_WithoutHistoryBuilder(
+				_deployedModel,
+				_userPrompt,
+				_optionalFileCollection,
+				_optionalRequest
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.Response.initialize(context, (IMendixObject) result);
 	}
 	/**
 	 * Create a chunk with only the input text populated.
@@ -257,6 +339,132 @@ public final class Microflows
 				_chunkCollection
 			)
 			.execute(context);
+	}
+	/**
+	 * Commits a DeployedModel to the database.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder deployedModel_CommitBuilder(
+		genaicommons.proxies.DeployedModel _deployedModel
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.DeployedModel_Commit");
+		builder = builder.withParam("DeployedModel", _deployedModel);
+		return builder;
+	}
+
+	/**
+	 * Commits a DeployedModel to the database.
+	 */
+	public static void deployedModel_Commit(
+		IContext context,
+		genaicommons.proxies.DeployedModel _deployedModel
+	)
+	{
+		deployedModel_CommitBuilder(
+				_deployedModel
+			)
+			.execute(context);
+	}
+	/**
+	 * Deletes a DeployedModel from the database.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder deployedModel_DeleteBuilder(
+		genaicommons.proxies.DeployedModel _deployedModel
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.DeployedModel_Delete");
+		builder = builder.withParam("DeployedModel", _deployedModel);
+		return builder;
+	}
+
+	/**
+	 * Deletes a DeployedModel from the database.
+	 */
+	public static void deployedModel_Delete(
+		IContext context,
+		genaicommons.proxies.DeployedModel _deployedModel
+	)
+	{
+		deployedModel_DeleteBuilder(
+				_deployedModel
+			)
+			.execute(context);
+	}
+	/**
+	 * Validates all attributes of a DeployedModel to check if they are not blank.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder deployedModel_ValidateBuilder(
+		genaicommons.proxies.DeployedModel _deployedModel
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.DeployedModel_Validate");
+		builder = builder.withParam("DeployedModel", _deployedModel);
+		return builder;
+	}
+
+	/**
+	 * Validates all attributes of a DeployedModel to check if they are not blank.
+	 */
+	public static boolean deployedModel_Validate(
+		IContext context,
+		genaicommons.proxies.DeployedModel _deployedModel
+	)
+	{
+		Object result = deployedModel_ValidateBuilder(
+				_deployedModel
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	/**
+	 * Use this microflow to execute a call to the embeddings API for a single string input. The microflow returns an EmbeddingsResponse containing token usage metrics. 
+	 * 
+	 * Inputs:
+	 * - InputText: Input text to create the embedding vector for.
+	 * - DeployedModel: The DeployedModel entity replaces the Connection entity. It contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Embeddings.
+	 * - EmbeddingOptions (optional): Can be used to specify optional attributes like vector dimensions. Note that not all provider and models may support all embeddings options attributes
+	 * 
+	 * Output 
+	 * - EmbeddingsResponse: This is a response object containing token usage metric and pointing to a ChunkCollection. The ChunkCollection contains the chunk for which an embedding vector was created. In order to retrieve the generated vector, "Embeddings: Get First Vector from Response" can be used.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder embeddings_StringBuilder(
+		genaicommons.proxies.DeployedModel _deployedModel,
+		java.lang.String _inputText,
+		genaicommons.proxies.EmbeddingsOptions _embeddingsOptions
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Embeddings_String");
+		builder = builder.withParam("DeployedModel", _deployedModel);
+		builder = builder.withParam("InputText", _inputText);
+		builder = builder.withParam("EmbeddingsOptions", _embeddingsOptions);
+		return builder;
+	}
+
+	/**
+	 * Use this microflow to execute a call to the embeddings API for a single string input. The microflow returns an EmbeddingsResponse containing token usage metrics. 
+	 * 
+	 * Inputs:
+	 * - InputText: Input text to create the embedding vector for.
+	 * - DeployedModel: The DeployedModel entity replaces the Connection entity. It contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Embeddings.
+	 * - EmbeddingOptions (optional): Can be used to specify optional attributes like vector dimensions. Note that not all provider and models may support all embeddings options attributes
+	 * 
+	 * Output 
+	 * - EmbeddingsResponse: This is a response object containing token usage metric and pointing to a ChunkCollection. The ChunkCollection contains the chunk for which an embedding vector was created. In order to retrieve the generated vector, "Embeddings: Get First Vector from Response" can be used.
+	 */
+	public static genaicommons.proxies.EmbeddingsResponse embeddings_String(
+		IContext context,
+		genaicommons.proxies.DeployedModel _deployedModel,
+		java.lang.String _inputText,
+		genaicommons.proxies.EmbeddingsOptions _embeddingsOptions
+	)
+	{
+		Object result = embeddings_StringBuilder(
+				_deployedModel,
+				_inputText,
+				_embeddingsOptions
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.EmbeddingsResponse.initialize(context, (IMendixObject) result);
 	}
 	/**
 	 * Creates new EmbeddingsOptions.
@@ -606,6 +814,53 @@ public final class Microflows
 			)
 			.execute(context);
 		return result == null ? null : genaicommons.proxies.ImageOptions.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder inputModality_CommitBuilder(
+		genaicommons.proxies.InputModality _inputModality
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.InputModality_Commit");
+		builder = builder.withParam("InputModality", _inputModality);
+		return builder;
+	}
+
+	public static void inputModality_Commit(
+		IContext context,
+		genaicommons.proxies.InputModality _inputModality
+	)
+	{
+		inputModality_CommitBuilder(
+				_inputModality
+			)
+			.execute(context);
+	}
+	/**
+	 * Gets or creates an input modality object for the given model modality.
+	 * If a new object is created it is also committed to the database.
+	 */
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder inputModality_GetCreateBuilder(
+		genaicommons.proxies.ENUM_ModelModality _eNUM_ModelModality
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.InputModality_GetCreate");
+		builder = builder.withParam("ENUM_ModelModality", _eNUM_ModelModality == null ? null : _eNUM_ModelModality.name());
+		return builder;
+	}
+
+	/**
+	 * Gets or creates an input modality object for the given model modality.
+	 * If a new object is created it is also committed to the database.
+	 */
+	public static genaicommons.proxies.InputModality inputModality_GetCreate(
+		IContext context,
+		genaicommons.proxies.ENUM_ModelModality _eNUM_ModelModality
+	)
+	{
+		Object result = inputModality_GetCreateBuilder(
+				_eNUM_ModelModality
+			)
+			.execute(context);
+		return result == null ? null : genaicommons.proxies.InputModality.initialize(context, (IMendixObject) result);
 	}
 	/**
 	 * Adds a Message to the Response (if none already exists).
@@ -1237,12 +1492,12 @@ public final class Microflows
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder usage_Create_EmbeddingsBuilder(
 		genaicommons.proxies.EmbeddingsResponse _embeddingsResponse,
-		java.lang.String _deploymentIdentifier
+		genaicommons.proxies.DeployedModel _deployedModel
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Usage_Create_Embeddings");
 		builder = builder.withParam("EmbeddingsResponse", _embeddingsResponse);
-		builder = builder.withParam("DeploymentIdentifier", _deploymentIdentifier);
+		builder = builder.withParam("DeployedModel", _deployedModel);
 		return builder;
 	}
 
@@ -1261,12 +1516,12 @@ public final class Microflows
 	public static void usage_Create_Embeddings(
 		IContext context,
 		genaicommons.proxies.EmbeddingsResponse _embeddingsResponse,
-		java.lang.String _deploymentIdentifier
+		genaicommons.proxies.DeployedModel _deployedModel
 	)
 	{
 		usage_Create_EmbeddingsBuilder(
 				_embeddingsResponse,
-				_deploymentIdentifier
+				_deployedModel
 			)
 			.execute(context);
 	}
@@ -1284,12 +1539,12 @@ public final class Microflows
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder usage_Create_TextAndFilesBuilder(
 		genaicommons.proxies.Response _response,
-		java.lang.String _deploymentIdentifier
+		genaicommons.proxies.DeployedModel _deployedModel
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GenAICommons.Usage_Create_TextAndFiles");
 		builder = builder.withParam("Response", _response);
-		builder = builder.withParam("DeploymentIdentifier", _deploymentIdentifier);
+		builder = builder.withParam("DeployedModel", _deployedModel);
 		return builder;
 	}
 
@@ -1308,12 +1563,12 @@ public final class Microflows
 	public static void usage_Create_TextAndFiles(
 		IContext context,
 		genaicommons.proxies.Response _response,
-		java.lang.String _deploymentIdentifier
+		genaicommons.proxies.DeployedModel _deployedModel
 	)
 	{
 		usage_Create_TextAndFilesBuilder(
 				_response,
-				_deploymentIdentifier
+				_deployedModel
 			)
 			.execute(context);
 	}
