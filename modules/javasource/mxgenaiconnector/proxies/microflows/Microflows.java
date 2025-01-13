@@ -17,13 +17,13 @@ public final class Microflows
 
 	// These are the microflows for the MxGenAIConnector module
 	/**
-	 * Microflow can be used to invoke a chat completions API. The request is enriched with knowledge from the knowledge base, so that the model can base the answer on the passed knowledge instead of its own training data. You can optionally add other options via the "Configure Retrieve & Generate" action. The Response's Message contains References (see GenAICommons module). 
+	 * Microflow can be used to invoke a chat completions API. The request is enriched with knowledge from the knowledge base, so that the model can base the answer on the passed knowledge instead of its own training data. You can optionally add other options via the "Configure MxCloud Retrieve and Generate (add Knowledge Base)" action. The Response's Message contains References (see GenAICommons module). 
 	 * Inputs:
 	 * - UserPrompt: Input that is used for the knowledge base retrieval and also sent to the model as the user's request.
-	 * - Request: Contains optional attributes. If a system prompt is passed, this will be added as additional instructions to the final system prompt. The knowledge base for the retrieval should be added via the Extension, see "Add Mendix Cloud GenAI Knowledge Base"  in the toolbox.
-	 * - DeployedModel: The DeployedModel entity replaces the Connection entity. It contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Text.
+	 * - Request: The object is associated to the mandatory RetrieveAndGenerateRequest_Extension object which contains the knowledge base connection information. The RetrieveAndGenerateRequest_Extension can be added with the "Configure MxCloud Retrieve and Generate (add Knowledge Base)" toolbox action. Additionally, optional attributes can be set on the Request object. If a system prompt is passed, this will be added as additional instructions to the final system prompt.
+	 * - DeployedModel: The object contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Text.
 	 * 
-	 * If the embedded text in the knowledge base is different than what the model should use for generating the response, you can add MetaData to the chunks at insertion stage (key: "knowledge"), for example the embedded chunk might contain information about a problem (=inputtext), but the model should base the response on the actual solution (=knowledge). Additionally, if the references should contain a url as source, you can add MetaData "sourceUrl". The title of the reference is based on the "HumanReadableId" of the chunk in the knowledge base.
+	 * If the embedded text in the knowledge base is different than what the model should use for generating the response, you can add Metadata to the chunks at insertion stage (key: "knowledge"), for example the embedded chunk might contain information about a problem (=inputtext), but the model should base the response on the actual solution (=knowledge). Additionally, if the references should contain a url as source, you can add MetaData "sourceUrl". The title of the reference is based on the "HumanReadableId" of the chunk in the knowledge base.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder chatCompletions_RetrieveAndGenerateBuilder(
 		genaicommons.proxies.DeployedModel _deployedModel,
@@ -39,13 +39,13 @@ public final class Microflows
 	}
 
 	/**
-	 * Microflow can be used to invoke a chat completions API. The request is enriched with knowledge from the knowledge base, so that the model can base the answer on the passed knowledge instead of its own training data. You can optionally add other options via the "Configure Retrieve & Generate" action. The Response's Message contains References (see GenAICommons module). 
+	 * Microflow can be used to invoke a chat completions API. The request is enriched with knowledge from the knowledge base, so that the model can base the answer on the passed knowledge instead of its own training data. You can optionally add other options via the "Configure MxCloud Retrieve and Generate (add Knowledge Base)" action. The Response's Message contains References (see GenAICommons module). 
 	 * Inputs:
 	 * - UserPrompt: Input that is used for the knowledge base retrieval and also sent to the model as the user's request.
-	 * - Request: Contains optional attributes. If a system prompt is passed, this will be added as additional instructions to the final system prompt. The knowledge base for the retrieval should be added via the Extension, see "Add Mendix Cloud GenAI Knowledge Base"  in the toolbox.
-	 * - DeployedModel: The DeployedModel entity replaces the Connection entity. It contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Text.
+	 * - Request: The object is associated to the mandatory RetrieveAndGenerateRequest_Extension object which contains the knowledge base connection information. The RetrieveAndGenerateRequest_Extension can be added with the "Configure MxCloud Retrieve and Generate (add Knowledge Base)" toolbox action. Additionally, optional attributes can be set on the Request object. If a system prompt is passed, this will be added as additional instructions to the final system prompt.
+	 * - DeployedModel: The object contains the name of the microflow to be executed for the specified model and other information relevant to connect to a model. The OutputModality needs to be Text.
 	 * 
-	 * If the embedded text in the knowledge base is different than what the model should use for generating the response, you can add MetaData to the chunks at insertion stage (key: "knowledge"), for example the embedded chunk might contain information about a problem (=inputtext), but the model should base the response on the actual solution (=knowledge). Additionally, if the references should contain a url as source, you can add MetaData "sourceUrl". The title of the reference is based on the "HumanReadableId" of the chunk in the knowledge base.
+	 * If the embedded text in the knowledge base is different than what the model should use for generating the response, you can add Metadata to the chunks at insertion stage (key: "knowledge"), for example the embedded chunk might contain information about a problem (=inputtext), but the model should base the response on the actual solution (=knowledge). Additionally, if the references should contain a url as source, you can add MetaData "sourceUrl". The title of the reference is based on the "HumanReadableId" of the chunk in the knowledge base.
 	 */
 	public static genaicommons.proxies.Response chatCompletions_RetrieveAndGenerate(
 		IContext context,
@@ -389,13 +389,16 @@ public final class Microflows
 		nAV_ConfigurationOverview_OpenBuilder().execute(context);
 	}
 	/**
-	 * Microflow can be used to add optional parameters to the Retrieve and Generate Request which then is passed to the ChatCompletions_RetrieveAndGenerate microflow. 
+	 * Microflow can be used to add optional parameters to the Retrieve and Generate Request which then is passed to the ChatCompletions_RetrieveAndGenerate microflow. Note that this currently works without history only.
+	 * If your use case requires chat with history, see the AI Bot Starter App for an example of how to use function calling to make knowledge base retrieves work with history: ChatContext_MxCloudRetrieveAndGenerate_ActionMicroflow
+	 * 
 	 * Inputs:
 	 * - Request: Object that is passed to the ChatCompletions_RetrieveAndGenerate microflow.
 	 * - MaxNumberOfResults (optional): Specify how many results are retrieved from the knowledge base and passed to the model as part of the request. Default: 3
 	 * - MinimumSimilarity (optional): Specify how similar the input text should be compared to the chunks in the knowledge base. Value needs to be between 0 and 1. Default: 0
 	 * - MetadataCollection (optional): Apply filtering when retrieving the results from the knowledge base.
 	 * - ForceModelToUseKnowledgeBase (optional): If set to true, the model can only base the response on the passed knowledge and not use its training data. Default: true
+	 * -Connection: contains information for connecting to your knowledge base.
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder retrieveAndGenerateRequest_Extension_CreateBuilder(
 		genaicommons.proxies.Request _request,
@@ -417,13 +420,16 @@ public final class Microflows
 	}
 
 	/**
-	 * Microflow can be used to add optional parameters to the Retrieve and Generate Request which then is passed to the ChatCompletions_RetrieveAndGenerate microflow. 
+	 * Microflow can be used to add optional parameters to the Retrieve and Generate Request which then is passed to the ChatCompletions_RetrieveAndGenerate microflow. Note that this currently works without history only.
+	 * If your use case requires chat with history, see the AI Bot Starter App for an example of how to use function calling to make knowledge base retrieves work with history: ChatContext_MxCloudRetrieveAndGenerate_ActionMicroflow
+	 * 
 	 * Inputs:
 	 * - Request: Object that is passed to the ChatCompletions_RetrieveAndGenerate microflow.
 	 * - MaxNumberOfResults (optional): Specify how many results are retrieved from the knowledge base and passed to the model as part of the request. Default: 3
 	 * - MinimumSimilarity (optional): Specify how similar the input text should be compared to the chunks in the knowledge base. Value needs to be between 0 and 1. Default: 0
 	 * - MetadataCollection (optional): Apply filtering when retrieving the results from the knowledge base.
 	 * - ForceModelToUseKnowledgeBase (optional): If set to true, the model can only base the response on the passed knowledge and not use its training data. Default: true
+	 * -Connection: contains information for connecting to your knowledge base.
 	 */
 	public static mxgenaiconnector.proxies.RetrieveAndGenerateRequest_Extension retrieveAndGenerateRequest_Extension_Create(
 		IContext context,
