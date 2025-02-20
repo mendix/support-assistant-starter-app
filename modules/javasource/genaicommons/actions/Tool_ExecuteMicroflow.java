@@ -13,23 +13,30 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class Function_ExecuteMicroflow extends CustomJavaAction<java.lang.String>
+public class Tool_ExecuteMicroflow extends CustomJavaAction<java.lang.String>
 {
-	/** @deprecated use Function.getMendixObject() instead. */
+	/** @deprecated use Tool.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __Function;
-	private final genaicommons.proxies.Function Function;
+	private final IMendixObject __Tool;
+	private final genaicommons.proxies.Tool Tool;
+	/** @deprecated use Request.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __Request;
+	private final genaicommons.proxies.Request Request;
 	private final java.lang.String Arguments;
 
-	public Function_ExecuteMicroflow(
+	public Tool_ExecuteMicroflow(
 		IContext context,
-		IMendixObject _function,
+		IMendixObject _tool,
+		IMendixObject _request,
 		java.lang.String _arguments
 	)
 	{
 		super(context);
-		this.__Function = _function;
-		this.Function = _function == null ? null : genaicommons.proxies.Function.initialize(getContext(), _function);
+		this.__Tool = _tool;
+		this.Tool = _tool == null ? null : genaicommons.proxies.Tool.initialize(getContext(), _tool);
+		this.__Request = _request;
+		this.Request = _request == null ? null : genaicommons.proxies.Request.initialize(getContext(), _request);
 		this.Arguments = _arguments;
 	}
 
@@ -48,7 +55,7 @@ public class Function_ExecuteMicroflow extends CustomJavaAction<java.lang.String
 	@java.lang.Override
 	public java.lang.String toString()
 	{
-		return "Function_ExecuteMicroflow";
+		return "Tool_ExecuteMicroflow";
 	}
 
 	// BEGIN EXTRA CODE
