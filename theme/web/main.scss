@@ -21,3 +21,12 @@
         }
     }
 }
+
+// Ensures 100% height in react-mode
+.layout-atlas .mx-scrollcontainer .mx-scrollcontainer-middle .mx-scrollcontainer-wrapper .mx-scrollcontainer
+    .region-content .mx-scrollcontainer-wrapper  {
+        height: 100%;
+        .mx-placeholder{
+            height: 100%;
+        }
+}
