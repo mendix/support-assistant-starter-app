@@ -12,8 +12,9 @@ package objecthandling.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class setMemberValueByMemberName extends CustomJavaAction<java.lang.Void>
+public class setMemberValueByMemberName extends UserAction<java.lang.Void>
 {
 	private final IMendixObject MxObject;
 	private final java.lang.String AttributeName;

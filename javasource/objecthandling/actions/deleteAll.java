@@ -13,11 +13,12 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
 import objecthandling.XPath;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Removes ALL instances of a certain domain object type using batches.
  */
-public class deleteAll extends CustomJavaAction<java.lang.Boolean>
+public class deleteAll extends UserAction<java.lang.Boolean>
 {
 	private final IMendixObject entityType;
 

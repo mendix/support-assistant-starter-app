@@ -15,6 +15,7 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import databaseconnector.impl.JdbcConnector;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * For a more detailed documentation, please visit the website at
@@ -42,7 +43,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * @param statement An instance of the Statement NPE containing both the content of the
  *                  statement to be called as well as all of its parameters.
  */
-public class ExecuteCallableStatement extends CustomJavaAction<java.lang.Void>
+public class ExecuteCallableStatement extends UserAction<java.lang.Void>
 {
 	private final java.lang.String jdbcUrl;
 	private final java.lang.String userName;

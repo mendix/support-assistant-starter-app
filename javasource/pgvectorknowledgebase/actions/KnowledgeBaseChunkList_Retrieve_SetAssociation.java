@@ -17,6 +17,7 @@ import com.mendix.webui.CustomJavaAction;
 import genaicommons.proxies.KnowledgeBaseChunk;
 import pgvectorknowledgebase.impl.ChunkUtils;
 import pgvectorknowledgebase.impl.MxLogger;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * The Retrieve & Associate activity is used to retrieve a subset of or the whole knowledge base. In addition to the Retrieve operation, this operation also sets the associations to the Mendix objects for which the chunks were created. In order for this to work, it is necessary to create a custom specialization of the KnowledgeBaseChunk entity in the domain model of the application and to make sure the necessary associations exist towards the Mendix objects that the chunks represent. This specialization must be passed as an entity parameter called TargetChunk. A list of this type is then returned, which can be used for retrieval of the Mendix objects in custom logic. For additional filtering, provide a MetadataCollection (see the Initialize MetadataCollection with Metadata section and the Add Metadata to MetadataCollection section). Lastly, Offset and MaxNumberOfResults can be used for pagination or specific selection use cases.
@@ -32,7 +33,7 @@ import pgvectorknowledgebase.impl.MxLogger;
  * The Connection entity passed must be of type PgVectorKnowledgebaseConnection. It must contain the KnowledgeBaseName string attribute filled and a DatabaseConfiguration associated with the connection details to a PostgreSQL database server with the PgVector extension installed. This DatabaseConfiguration entity is typically configured at runtime or in after-startup logic. By providing the KnowledgeBaseName on the Connection, you determine the knowledge base. 
  * The TargetChunk entity (type parameter) must be a specialization of the Chunk entity from this module. If it contains associations to (specializations of) the related mendix object for which the chunk was created, this will be set by this operation for easy processing afterwards.
  */
-public class KnowledgeBaseChunkList_Retrieve_SetAssociation extends CustomJavaAction<java.util.List<IMendixObject>>
+public class KnowledgeBaseChunkList_Retrieve_SetAssociation extends UserAction<java.util.List<IMendixObject>>
 {
 	/** @deprecated use Connection.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
