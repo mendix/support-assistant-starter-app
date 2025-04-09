@@ -17,6 +17,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.systemwideinterfaces.core.meta.IMetaObject;
 import com.mendix.webui.CustomJavaAction;
 import databaseconnector.impl.JdbcConnector;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * For a more detailed documentation, please visit the website at
@@ -48,7 +49,7 @@ import databaseconnector.impl.JdbcConnector;
  * 
  * @return Result of the query as a list of mendix objects.
  */
-public class ExecuteParameterizedQuery extends CustomJavaAction<java.util.List<IMendixObject>>
+public class ExecuteParameterizedQuery extends UserAction<java.util.List<IMendixObject>>
 {
 	private final java.lang.String jdbcUrl;
 	private final java.lang.String userName;

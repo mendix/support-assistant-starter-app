@@ -14,6 +14,7 @@ import com.mendix.logging.ILogNode;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import databaseconnector.impl.JdbcConnector;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * For a more detailed documentation, please visit the website at
@@ -45,7 +46,7 @@ import databaseconnector.impl.JdbcConnector;
  * 
  * @return Number of affected rows.
  */
-public class ExecuteParameterizedStatement extends CustomJavaAction<java.lang.Long>
+public class ExecuteParameterizedStatement extends UserAction<java.lang.Long>
 {
 	private final java.lang.String jdbcUrl;
 	private final java.lang.String userName;

@@ -14,8 +14,9 @@ import java.util.List;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class createObjectListFromObject extends CustomJavaAction<java.util.List<IMendixObject>>
+public class createObjectListFromObject extends UserAction<java.util.List<IMendixObject>>
 {
 	private final IMendixObject inputObject;
 

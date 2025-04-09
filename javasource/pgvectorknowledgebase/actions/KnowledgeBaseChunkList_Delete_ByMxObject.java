@@ -16,6 +16,7 @@ import genaicommons.proxies.KnowledgeBaseChunk;
 import pgvectorknowledgebase.impl.ChunkUtils;
 import pgvectorknowledgebase.impl.MxLogger;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Use this operation to delete existing chunks and corresponding metadata in a knowledge base based on the MxObjectID. 
@@ -29,7 +30,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * 
  * The Connection entity passed must be of type PgVectorKnowledgebaseConnection. It must contain the KnowledgeBaseName string attribute filled and a DatabaseConfiguration associated with the connection details to a PostgreSQL database server with the PgVector extension installed. This DatabaseConfiguration entity is typically configured at runtime or in after-startup logic. By providing the KnowledgeBaseName on the Connection, you determine the knowledge base.
  */
-public class KnowledgeBaseChunkList_Delete_ByMxObject extends CustomJavaAction<java.lang.Boolean>
+public class KnowledgeBaseChunkList_Delete_ByMxObject extends UserAction<java.lang.Boolean>
 {
 	/** @deprecated use Connection.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

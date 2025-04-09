@@ -17,6 +17,7 @@ import genaicommons.proxies.KnowledgeBaseChunk;
 import pgvectorknowledgebase.impl.ChunkUtils;
 import pgvectorknowledgebase.impl.MxLogger;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Use this operation to retrieve chunks from the knowledge base. This operation returns a list of KnowledgeBaseChunks
@@ -32,7 +33,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * 
  * The Connection entity passed must be of type PgVectorKnowledgebaseConnection. It must contain the KnowledgeBaseName string attribute filled and a DatabaseConfiguration associated with the connection details to a PostgreSQL database server with the PgVector extension installed. This DatabaseConfiguration entity is typically configured at runtime or in after-startup logic. By providing the KnowledgeBaseName on the Connection, you determine the knowledge base. 
  */
-public class KnowledgeBaseChunkList_Retrieve extends CustomJavaAction<java.util.List<IMendixObject>>
+public class KnowledgeBaseChunkList_Retrieve extends UserAction<java.util.List<IMendixObject>>
 {
 	/** @deprecated use Connection.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
