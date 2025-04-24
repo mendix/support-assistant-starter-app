@@ -29145,6 +29145,35 @@ input[type=checkbox].three-state-checkbox + .control-label {
   text-wrap: wrap !important;
 }
 
+.chat-container-agent {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-left: 1px solid #E7E7E9;
+  padding-top: 16px;
+  margin-bottom: unset;
+  padding-left: unset;
+  padding-right: unset;
+}
+.chat-container-agent .chat-container {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.chat-container-agent .chat-container .d-inline-block {
+  display: none !important;
+}
+.chat-container-agent .chat-bubble-wrapper .chat-message-card {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #ced0d3;
+  padding: 16px;
+}
+.chat-container-agent .chat-bubble-wrapper--user .chat-message-card {
+  background: #f8f8f8;
+  border: 1px solid #f8f8f8;
+}
+
 .agents-page-content-container {
   min-height: -webkit-fill-available;
   min-height: -moz-available;
@@ -29428,6 +29457,67 @@ input[type=checkbox].three-state-checkbox + .control-label {
 .testcase-table .delete-icon {
   min-width: 5%;
   color: #e33f4e;
+}
+
+.hide-tooltip .widget-tooltip-arrow-top {
+  display: none;
+}
+.hide-tooltip .widget-tooltip-content {
+  display: none;
+}
+
+.agent-tooltip .widget-tooltip-content {
+  position: relative;
+  z-index: 1000;
+  text-align: unset;
+  word-break: break-word;
+  background-color: white;
+  border-radius: 4px;
+  color: black;
+}
+
+.agent-tooltip-w330 .widget-tooltip-content {
+  width: 330px;
+  padding: 0 15px 0 15px;
+}
+
+.agent-tooltip-w280 .widget-tooltip-content {
+  width: 280px;
+  padding: 0 15px 0 15px;
+}
+
+.output-tooltip .widget-tooltip-content {
+  width: 330px;
+  max-height: 230px;
+  text-align: left;
+  margin-bottom: 0;
+  padding: 16px;
+  padding-bottom: 0;
+  overflow-y: auto;
+}
+
+.output-tooltip-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: auto;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.output-tooltip-with-icon {
+  grid-template-columns: 10% 80%;
+  gap: 2px;
+  padding: 0;
+  margin: 0;
+}
+.output-tooltip-with-icon .tooltip-icon {
+  padding-bottom: 2px;
+}
+
+.custom-tooltip-listview ul {
+  padding: 0;
+  margin: 0;
 }
 
 .gallery-hide-paging .widget-gallery-footer {
