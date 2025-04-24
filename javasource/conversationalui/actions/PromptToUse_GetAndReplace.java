@@ -16,14 +16,14 @@ import com.mendix.core.CoreException;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import conversationalui.impl.MxLogger;
-import conversationalui.proxies.Agent;
+import conversationalui.proxies.Prompt;
 import conversationalui.proxies.PromptToUse;
 import conversationalui.proxies.Version;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
- * Use this action to get a PromptInUse based on an agent that was configured in the app. If you pass a context object, all variables that match the variables used in the prompt text are replaced with the actual values extracted from the attributes with the exact same name as a variable. String, integer/long, decimal, date time, boolean and enum attribute types are supported. Note that for ENUM attributes the key will be used to replace a variable. To ensure a fixed format (for other types than string), it is recommended to convert values to type string first and only pass string attributes for value replacement.
+ * Use this action to get a PromptInUse based on a prompt that was configured in the app. If you pass a context object, all variables that match the prompt's variables are replaced with the actual values extracted from the attributes with the exact same name as a variable. String, integer/long, decimal, date time, boolean and enum attribute types are supported. Note that for ENUM attributes the key will be used to replace a variable. To ensure a fixed format (for other types than string), it is recommended to convert values to type string first and only pass string attributes for value replacement.
  * 
  * 
  * Output:
@@ -31,21 +31,21 @@ import com.mendix.systemwideinterfaces.core.UserAction;
  */
 public class PromptToUse_GetAndReplace extends UserAction<IMendixObject>
 {
-	/** @deprecated use Agent.getMendixObject() instead. */
+	/** @deprecated use Prompt.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __Agent;
-	private final conversationalui.proxies.Agent Agent;
+	private final IMendixObject __Prompt;
+	private final conversationalui.proxies.Prompt Prompt;
 	private final IMendixObject ContextObject;
 
 	public PromptToUse_GetAndReplace(
 		IContext context,
-		IMendixObject _agent,
+		IMendixObject _prompt,
 		IMendixObject _contextObject
 	)
 	{
 		super(context);
-		this.__Agent = _agent;
-		this.Agent = _agent == null ? null : conversationalui.proxies.Agent.initialize(getContext(), _agent);
+		this.__Prompt = _prompt;
+		this.Prompt = _prompt == null ? null : conversationalui.proxies.Prompt.initialize(getContext(), _prompt);
 		this.ContextObject = _contextObject;
 	}
 
@@ -54,11 +54,11 @@ public class PromptToUse_GetAndReplace extends UserAction<IMendixObject>
 	{
 		// BEGIN USER CODE
 		try {
-			requireNonNull(Agent, "Agent is required.");
+			requireNonNull(Prompt, "Prompt is required.");
 
 			// get Version In Use (alternatively Draft) and set values
 			
-			Version versionInUse = Agent.getAgent_Version_InUse();
+			Version versionInUse = Prompt.getPrompt_Version_InUse();
 			requireNonNull(versionInUse, "No version marked as 'In Use' was found, so no PromptInUse can be created.");
 
 			PromptToUse promptToUse = createPromptToUse(versionInUse);
@@ -94,27 +94,27 @@ public class PromptToUse_GetAndReplace extends UserAction<IMendixObject>
 			throws CoreException {
 		
 		// Get Prompt
-		Agent agent = versionInUse.getVersion_Agent(getContext());
+		Prompt prompt = versionInUse.getVersion_Prompt(getContext());
 
-		requireNonNull(agent, "Cannot replace variables for the Version, as it has no Prompt linked");
+		requireNonNull(prompt, "Cannot replace variables for the Version, as it has no Prompt linked");
 
 		// Check if Entity name is not empty)
-		if (agent.getEntity() == null || agent.getEntity().isBlank()) {
+		if (prompt.getEntity() == null || prompt.getEntity().isBlank()) {
 			throw new IllegalArgumentException(
 					"Cannot replace variables: no Variables Entity is configured for this Prompt.");
 		}
 
 		// Check if entity matches the passed object's entity
-		if (!variablesObject.getMetaObject().getName().equals(agent.getEntity())) {
+		if (!variablesObject.getMetaObject().getName().equals(prompt.getEntity())) {
 			throw new IllegalArgumentException(
 					"Cannot replace variables for the passed VariablesObject because it does not match the Variables Entity that was configured for this Prompt."
 							+ " Passed object's entity: " + ContextObject.getMetaObject().getName() + ", expected: "
-							+ agent.getEntity());
+							+ prompt.getEntity());
 		}
 
 		// Get all variables associated to the Prompt and replace placeholders with
 		// values from attributes.
-		List<IMendixObject> variableList = Core.retrieveByPath(getContext(), agent.getMendixObject(),
+		List<IMendixObject> variableList = Core.retrieveByPath(getContext(), prompt.getMendixObject(),
 				"ConversationalUI.Variable_Prompt");
 
 		// Replacement of variables if they are found in the passed object

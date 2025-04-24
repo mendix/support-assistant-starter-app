@@ -28586,6 +28586,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   overflow: visible;
   margin-left: 12px;
   margin-right: 12px;
+  max-height: 38rem;
 }
 .page-container .content-column {
   min-width: 400px;
@@ -28597,6 +28598,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   overflow: visible;
   margin-left: 12px;
   margin-right: 12px;
+  max-height: 38rem;
   z-index: 0;
 }
 @media (max-width: 1200px) {
@@ -28694,6 +28696,7 @@ input[type=checkbox].three-state-checkbox + .control-label {
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-gutter: stable;
+  max-height: 25rem;
   margin-bottom: 0;
   padding-right: 8px;
 }
