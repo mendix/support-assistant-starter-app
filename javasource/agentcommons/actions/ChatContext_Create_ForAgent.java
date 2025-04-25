@@ -63,7 +63,7 @@ public class ChatContext_Create_ForAgent extends UserAction<IMendixObject>
 		try {
 		    requireNonNull(Agent, "Prompt is required.");
 		    DeployedModel deployedModel = OverwritingDeployedModel != null ? OverwritingDeployedModel : Agent.getAgent_DeployedModel();
-		    requireNonNull(deployedModel, "No DeployedModel could be used for creating the ChatContext. Either pass the OverwritingDeployedModel or make sure to use a Prompt that has a DeployedModel associated.");
+		    requireNonNull(deployedModel, "No DeployedModel could be used for creating the ChatContext. Either pass the OverwritingDeployedModel or make sure to use an Agent that has a DeployedModel associated.");
 		    
 		    IMendixObject returnValue = Core.userActionCall("AgentCommons." + PromptToUse_GetAndReplace.class.getSimpleName())
 		    		.withParams(Agent.getMendixObject(), ContextObject)
