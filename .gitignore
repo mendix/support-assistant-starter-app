@@ -17,3 +17,5 @@
 /vendorlib/temp/
 .DS_Store
 /.svn/
+/agent builder starter app.mpr.bak
+/agent builder starter app.mpr.lock
