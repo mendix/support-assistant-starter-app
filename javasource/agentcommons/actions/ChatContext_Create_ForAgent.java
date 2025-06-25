@@ -12,8 +12,8 @@ package agentcommons.actions;
 import static java.util.Objects.requireNonNull;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
-import conversationalui.impl.MxLogger;
+import agentcommons.impl.AgentImpl;
+import agentcommons.impl.MxLogger;
 import agentcommons.proxies.PromptToUse;
 import genaicommons.proxies.DeployedModel;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
@@ -28,32 +28,32 @@ import com.mendix.systemwideinterfaces.core.UserAction;
  */
 public class ChatContext_Create_ForAgent extends UserAction<IMendixObject>
 {
-	/** @deprecated use OverwritingDeployedModel.getMendixObject() instead. */
-	@java.lang.Deprecated(forRemoval = true)
-	private final IMendixObject __OverwritingDeployedModel;
-	private final genaicommons.proxies.DeployedModel OverwritingDeployedModel;
-	private final java.lang.String ActionMicroflow;
 	/** @deprecated use Agent.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
 	private final IMendixObject __Agent;
 	private final agentcommons.proxies.Agent Agent;
+	private final java.lang.String ActionMicroflow;
 	private final IMendixObject ContextObject;
+	/** @deprecated use OverwritingDeployedModel.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __OverwritingDeployedModel;
+	private final genaicommons.proxies.DeployedModel OverwritingDeployedModel;
 
 	public ChatContext_Create_ForAgent(
 		IContext context,
-		IMendixObject _overwritingDeployedModel,
-		java.lang.String _actionMicroflow,
 		IMendixObject _agent,
-		IMendixObject _contextObject
+		java.lang.String _actionMicroflow,
+		IMendixObject _contextObject,
+		IMendixObject _overwritingDeployedModel
 	)
 	{
 		super(context);
-		this.__OverwritingDeployedModel = _overwritingDeployedModel;
-		this.OverwritingDeployedModel = _overwritingDeployedModel == null ? null : genaicommons.proxies.DeployedModel.initialize(getContext(), _overwritingDeployedModel);
-		this.ActionMicroflow = _actionMicroflow;
 		this.__Agent = _agent;
 		this.Agent = _agent == null ? null : agentcommons.proxies.Agent.initialize(getContext(), _agent);
+		this.ActionMicroflow = _actionMicroflow;
 		this.ContextObject = _contextObject;
+		this.__OverwritingDeployedModel = _overwritingDeployedModel;
+		this.OverwritingDeployedModel = _overwritingDeployedModel == null ? null : genaicommons.proxies.DeployedModel.initialize(getContext(), _overwritingDeployedModel);
 	}
 
 	@java.lang.Override
@@ -62,9 +62,9 @@ public class ChatContext_Create_ForAgent extends UserAction<IMendixObject>
 		// BEGIN USER CODE
 		
 		try {
-		    requireNonNull(Agent, "Prompt is required.");
-		    DeployedModel deployedModel = OverwritingDeployedModel != null ? OverwritingDeployedModel : Agent.getAgent_DeployedModel();
-		    requireNonNull(deployedModel, "No DeployedModel could be used for creating the ChatContext. Either pass the OverwritingDeployedModel or make sure to use a Prompt that has a DeployedModel associated.");
+		    requireNonNull(Agent, "Agent is required.");
+		    DeployedModel deployedModel = OverwritingDeployedModel != null ? OverwritingDeployedModel : AgentImpl.getDeployedModel(Agent);
+		    requireNonNull(deployedModel, "No DeployedModel could be found for creating the ChatContext. Either pass the OverwritingDeployedModel or select a model on the agent version in use.");
 		    
 		    IMendixObject returnValue = Core.userActionCall("AgentCommons." + PromptToUse_GetAndReplace.class.getSimpleName())
 		    		.withParams(Agent.getMendixObject(), ContextObject)

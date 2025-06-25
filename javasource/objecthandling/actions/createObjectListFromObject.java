@@ -12,7 +12,6 @@ package objecthandling.actions;
 import java.util.ArrayList;
 import java.util.List;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.systemwideinterfaces.core.UserAction;
 
