@@ -11,7 +11,6 @@ package encryption.actions;
 
 import java.security.InvalidAlgorithmParameterException;
 import java.util.Base64;
-import javax.crypto.AEADBadTagException;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.GCMParameterSpec;
@@ -21,7 +20,6 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.UserAction;
 
 public class DecryptString extends UserAction<java.lang.String>
