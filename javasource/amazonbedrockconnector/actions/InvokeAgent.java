@@ -162,7 +162,7 @@ public class InvokeAgent extends UserAction<java.lang.Void>
 			return null;
 			
 		} catch (Exception e) {
-			LOGGER.error("Exception occurred: ", e.getMessage());
+			LOGGER.error(e);
 			throw e;
 		}
 		// END USER CODE

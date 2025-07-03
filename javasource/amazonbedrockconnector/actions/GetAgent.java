@@ -14,7 +14,7 @@ import java.util.Date;
 import com.mendix.systemwideinterfaces.core.IContext;
 import amazonbedrockconnector.impl.AmazonBedrockClient;
 import amazonbedrockconnector.impl.MxLogger;
-import amazonbedrockconnector.genaicommons_impl.ReferenceImpl;
+import amazonbedrockconnector.impl.ReferenceImpl;
 import amazonbedrockconnector.proxies.GetAgentResponse;
 import amazonbedrockconnector.proxies.RecommendedAction;
 import amazonbedrockconnector.proxies.Agent;
@@ -73,7 +73,7 @@ public class GetAgent extends UserAction<IMendixObject>
 			
 		} catch (Exception e) {
 			
-			LOGGER.error(e.getMessage());
+			LOGGER.error(e);
 			throw e;
 		}
 		// END USER CODE

@@ -73,7 +73,7 @@ public class ListIngestionJobs extends UserAction<IMendixObject>
 			
 		} catch (Exception e) {
 			
-			LOGGER.error(e.getMessage());
+			LOGGER.error(e);
 			throw e;
 		}
 		// END USER CODE

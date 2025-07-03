@@ -15,8 +15,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import mxgenaiconnector.impl.MxLogger;
 import com.mendix.systemwideinterfaces.core.UserAction;
+import mxgenaiconnector.impl.MxLogger;
 
 public class CohereEmbedResponse_ModifyJson extends UserAction<java.lang.String>
 {

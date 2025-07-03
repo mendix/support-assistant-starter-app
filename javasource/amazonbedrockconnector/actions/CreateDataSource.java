@@ -78,7 +78,7 @@ public class CreateDataSource extends UserAction<IMendixObject>
 			return getMxResponse(awsResponse).getMendixObject();
 		
 		} catch (Exception e) {
-			LOGGER.error(e.getMessage());
+			LOGGER.error(e);
 			throw e;
 		}
 		// END USER CODE

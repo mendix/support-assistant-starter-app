@@ -5,8 +5,6 @@
 /.mendix-cache/
 /.classpath
 /.project
-/support assistant starter app.mpr.bak
-/support assistant starter app.mpr.lock
 /modeler-merge-marker
 /project-settings.user.json
 /javasource/*/proxies/
@@ -17,6 +15,6 @@
 /vendorlib/temp/
 .DS_Store
 /.svn/
-/mprcontents/mprjournal*
 /agent builder starter app.mpr.bak
 /agent builder starter app.mpr.lock
+/mprcontents/mprjournal*
