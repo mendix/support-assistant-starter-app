@@ -18,3 +18,5 @@
 .DS_Store
 /.svn/
 /mprcontents/mprjournal*
+/agent builder starter app.mpr.bak
+/agent builder starter app.mpr.lock
