@@ -13,7 +13,6 @@ import static java.util.Objects.requireNonNull;
 import java.util.ArrayList;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import conversationalui.impl.MxLogger;
 import conversationalui.proxies.EntityAttribute;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
