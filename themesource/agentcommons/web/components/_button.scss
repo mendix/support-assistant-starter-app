@@ -1,97 +1,113 @@
 @import '../../../../theme/web/custom-variables';
 
-.btn-without-border {
-    color: $font-color-default;
-    border: 1px solid transparent;
-    &.mx-link{
-        text-decoration: none;
+.btn.mx-button {
+    &.btn-without-border {
+        color: $font-color-default;
+        border: 1px solid transparent;
+
+        &.mx-link {
+            text-decoration: none;
+        }
+
+        &.disabled {
+            background-color: transparent;
+            border: 1px solid transparent;
+            cursor: default;
+        }
+
+        &:hover {
+            background-color: $btn-default-bg-hover;
+            border: 1px solid $btn-default-bg-hover;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $font-color-default;
+        }
     }
 
-    &.disabled {
+    &.btn-without-border-red {
+        @extend .btn-without-border;
+        color: $new-danger;
+
+        &:hover {
+            background-color: $color-danger-lighter;
+            border: 1px solid $color-danger-lighter;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $new-danger;
+        }
+    }
+
+    &.btn-no-hover.mx-link:hover {
         background-color: transparent;
         border: 1px solid transparent;
         cursor: default;
     }
 
-    &:hover {
-        background-color: $btn-default-bg-hover;
-        border: 1px solid $btn-default-bg-hover;
-    }
-    &:hover,
-    &:active,
-    &:focus {
-        color: $font-color-default;
-    }
-}
+    &.btn-icon {
+        display: flex;
 
-.btn-without-border-red {
-    @extend .btn-without-border;
-    color: $new-danger;
-
-     &:hover {
-        background-color: $color-danger-lighter;
-        border: 1px solid $color-danger-lighter;
+        img {
+            height: 22px;
+            width: 22px;
+            margin: 1px;
+        }
     }
 
-    &:hover,
-    &:active,
-    &:focus {
-        color: $new-danger;
+    .custom-img {
+        img {
+            height: 22px;
+            width: 22px;
+            margin-right: 0;
+        }
     }
-}
 
-.btn-no-hover.mx-link:hover {
-    background-color: transparent;
-    border: 1px solid transparent;
-    cursor: default;
-}
-
-.btn-icon {
-    display: flex;
-    img {
-        height: 22px;
-        width: 22px;
-        margin: 1px;
+    &.btn-test-single {
+        img {
+            height: 20px;
+            width: 20px;
+            margin-right: 0;
+        }
     }
-}
 
-.custom-img {
-    img{
-        height: 22px;
-        width: 22px;
-        margin-right: 0;
+    &.btn-test {
+        @extend .btn-test-single;
+        border-radius: 4px 0 0 4px;
+
     }
-}
 
-.btn-test-single {
-    img {
-        height: 20px;
-        width: 20px;
-        margin-right: 0;
-    }
-}
-
-.btn-test {
-    @extend .btn-test-single;
-    border-radius: 4px 0 0 4px;
-    
-}
-
-.btn-test-all {
-    @extend .btn-test-single;
-    border-radius: 0 4px 4px 0;
-    border-left: 1px solid white;
-    padding: 0.6em;
-    &:active, &:focus, &:hover {
+    &.btn-test-all {
+        @extend .btn-test-single;
+        border-radius: 0 4px 4px 0;
         border-left: 1px solid white;
+        padding: 0.6em;
+
+        &:active,
+        &:focus,
+        &:hover {
+            border-left: 1px solid white;
+        }
+
+        img {
+            height: 20px;
+            width: 20px;
+            margin-right: 0;
+        }
     }
-    img {
-        height: 20px;
-        width: 20px;
-        margin-right: 0;
+
+    &.btn-small {
+        height: $size-small;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4px;
     }
 }
-
 
 .switch {
     .widget-switch .widget-switch-btn-wrapper {
@@ -139,13 +155,5 @@
     .widget-switch .widget-switch-btn-wrapper.disabled {
         opacity: 0.5;
         cursor: default;
-    }  
-}
-
-.btn-small {
-    height: $size-small;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 4px; 
+    }
 }
