@@ -12,6 +12,7 @@ package agentcommons.actions;
 import java.util.ArrayList;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
+import agentcommons.impl.MxLogger;
 import agentcommons.proxies.Entity;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.systemwideinterfaces.core.meta.IMetaObject;
@@ -28,16 +29,21 @@ public class Entity_GetList extends UserAction<java.util.List<IMendixObject>>
 	public java.util.List<IMendixObject> executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		ArrayList<IMendixObject> modelEntityList = new ArrayList<IMendixObject>();
-		
-		for(IMetaObject metaObject : Core.getMetaObjects()) {
-			IMendixObject entityImport = Core.instantiate(getContext(), Entity.getType());
-			entityImport.setValue(getContext(), Entity.MemberNames.Name.toString(), metaObject.getName());
-			entityImport.setValue(getContext(), Entity.MemberNames.IsPersistable.toString(), metaObject.isPersistable());
+		try {
+			ArrayList<IMendixObject> modelEntityList = new ArrayList<IMendixObject>();
 			
-			modelEntityList.add(entityImport);
-		}
-		return modelEntityList; 
+			for(IMetaObject metaObject : Core.getMetaObjects()) {
+				IMendixObject entityImport = Core.instantiate(getContext(), Entity.getType());
+				entityImport.setValue(getContext(), Entity.MemberNames.Name.toString(), metaObject.getName());
+				entityImport.setValue(getContext(), Entity.MemberNames.IsPersistable.toString(), metaObject.isPersistable());
+				
+				modelEntityList.add(entityImport);
+			}
+			return modelEntityList;
+		} catch (Exception e) {
+			LOGGER.error(e);
+			return null;
+	}
 		// END USER CODE
 	}
 
@@ -52,5 +58,6 @@ public class Entity_GetList extends UserAction<java.util.List<IMendixObject>>
 	}
 
 	// BEGIN EXTRA CODE
+	private static final MxLogger LOGGER = new MxLogger(Entity_GetList.class);
 	// END EXTRA CODE
 }
