@@ -31177,6 +31177,19 @@ input[type=checkbox].three-state-checkbox + .control-label {
   text-decoration-thickness: 1px;
 }
 
+.badge {
+  border-radius: 40px;
+  height: auto;
+  display: inline-block;
+  margin: 0;
+  padding: 4px 8px;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+  color: #ffffff;
+  font-size: 100%;
+  line-height: 1;
+}
 .badge.badge--primary-light {
   background-color: rgba(38, 74, 229, 0.9);
 }
@@ -31327,6 +31340,16 @@ input[type=checkbox].three-state-checkbox + .control-label {
 
 .popup-mid-size {
   width: 60vw;
+}
+
+.align-flex-end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 4px;
+  flex-flow: row wrap;
+  word-break: break-word;
 }
 
 .gallery-hide-paging .widget-gallery-footer {
