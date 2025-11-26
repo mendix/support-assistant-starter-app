@@ -9,6 +9,7 @@ $brand-warning-lighter: rgba($brand-warning, 0.60);
 
 
 .badge {
+    //padding: $spacing-smaller;
     &.badge--primary-light {
         background-color: $brand-primary-light;
     }
@@ -192,4 +193,8 @@ $brand-warning-lighter: rgba($brand-warning, 0.60);
   -webkit-box-orient: vertical;
   line-clamp: 1;
   text-wrap: wrap !important;
+}
+
+.popup-mid-size{
+    width: 60vw;
 }
