@@ -9,7 +9,18 @@ $brand-warning-lighter: rgba($brand-warning, 0.60);
 
 
 .badge {
-    //padding: $spacing-smaller;
+    border-radius: 40px;
+    height: auto;
+    display: inline-block;
+    margin: 0;
+    padding: $spacing-smaller $spacing-small;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+    color: #ffffff;
+    font-size: 100%;
+    line-height: 1;
+    
     &.badge--primary-light {
         background-color: $brand-primary-light;
     }
@@ -195,6 +206,16 @@ $brand-warning-lighter: rgba($brand-warning, 0.60);
   text-wrap: wrap !important;
 }
 
-.popup-mid-size{
+.popup-mid-size {
     width: 60vw;
+}
+
+.align-flex-end {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+    gap: $spacing-smaller;
+    flex-flow: row wrap; 
+    word-break: break-word;
 }
