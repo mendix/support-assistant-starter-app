@@ -43,6 +43,11 @@
     max-width: 153.5rem;
     justify-content: center;
     margin: auto;
+    .chat-container > .messages-container {
+        .scroll-btn-wrapper {
+            bottom: calc(170px + 16px);
+        }
+    }
 }
 
 .chat-container {
@@ -162,6 +167,11 @@
             background: $chat-bubble-user-background;
             border-radius: 8px 8px 0 8px;
             margin: 0 0 0 10%;
+        }
+    }
+    &--assistant {
+        .form-group {
+            margin-bottom: 0;
         }
     }
 }
