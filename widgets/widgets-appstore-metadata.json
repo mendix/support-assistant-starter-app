@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "widgets": [
+    {
+      "sha-256": "9818ee6c9c6064883749f721dffbbf31c1d88021ec8552d5017912bbf361c64b",
+      "name": "Combobox",
+      "version": "2.6.2",
+      "appStoreVersionGuid": "acfc1935-5b3b-4d4b-9370-a09635e7becd"
+    },
+    {
+      "sha-256": "692ff1b934a2d25861783379a4b01b934a7dafc63aa002274a5ce0308a05e20d",
+      "name": "Events",
+      "version": "1.0.1",
+      "appStoreVersionGuid": "306b70ac-8acd-41c8-a493-91b93f667111"
+    },
+    {
+      "sha-256": "68344f56b25d45f9b8db15ea5f1de6fa74323c0011df11e3f27cec10ab5226d2",
+      "name": "Image",
+      "version": "1.4.3",
+      "appStoreVersionGuid": "1321ab1b-0826-4ebc-b041-bc5053b3d3f0"
+    },
+    {
+      "sha-256": "66ae0702c1681c153236c4a2e81dd34b6d73bd499089dc0bb1dfe40f604d5a2f",
+      "name": "Markdown",
+      "version": "1.0.0",
+      "appStoreVersionGuid": "0baa0b14-1af5-402d-aa3d-cd152a22096b"
+    },
+    {
+      "sha-256": "86aa21c48245abaeaee1c8572194ad5c4c0709891b6cb1cee0143b25c3ff2e8f",
+      "name": "PopupMenu",
+      "version": "3.6.1",
+      "appStoreVersionGuid": "c7cd8fea-996d-4f65-81c9-d1a0c0f1afde"
+    },
+    {
+      "sha-256": "457703d14ccd2d2ae4d081150c9b50bccbddafa3ece3ae934b1a67b772267978",
+      "name": "Tooltip",
+      "version": "1.4.2",
+      "appStoreVersionGuid": "53ec950f-c353-41fa-829d-5b59aa42cb69"
+    }
+  ]
+}
