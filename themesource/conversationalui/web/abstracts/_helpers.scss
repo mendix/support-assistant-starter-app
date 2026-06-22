@@ -1,4 +1,6 @@
 @use '../../../../theme/web/custom-variables' as *;
+//@use '../../web/'
+
 
 .hover-trigger {
   .show-on-hover {
@@ -19,12 +21,13 @@
     position: sticky;
     background-color: inherit;
     top: 0px;
-    padding-top: $spacing-large;
+    padding-top: var(--spacing-large);
 }
 
 /* Text */
 .text-break-word {
   word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .text-clamp {
@@ -100,11 +103,11 @@
 
 .container-disabled {
   height: fit-content;
-  border: 1px solid $border-color-default;
-  border-radius: $btn-border-radius;
-  padding: $spacing-small;
+  border: 1px solid var(--border-color-default);
+  border-radius: var(--btn-border-radius);
+  padding: var(--spacing-small);
   width: auto;
-  background-color: $gray-lighter;
+  background-color: var(--gray-lighter);
   display: flex;
   align-items: center;
   flex-flow: row;
@@ -118,7 +121,7 @@
   align-items: center;
   justify-content: flex-start;
   text-align: left;
-  gap: $spacing-smaller;
+  gap: var(--spacing-smaller);
   flex-flow: row wrap; 
   word-break: break-word;
 }
@@ -142,7 +145,7 @@
 .row-text-img {
   display: flex;
   align-items: center;
-  gap: $spacing-smaller;    
+  gap: var(--spacing-smaller);    
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -152,7 +155,7 @@
 .row-right-aligned {
   display: flex;
   align-items: center;
-  gap: $spacing-smaller;
+  gap: var(--spacing-smaller);
   flex-flow: row wrap;
   justify-content: flex-end;
   text-align: left;
@@ -186,13 +189,26 @@
   width: 100%;
 }
 
-/* Custom Width */
-.height-full {
-  height: 100%;
+.width-flex-full {
+  display: flex;
+  flex-grow: 1;
+}
+
+.width--40-percent {
+  width: 40%;
 }
 
 .w306 {
-  width: 25.5rem;;
+  width: 25.5rem;
+}
+
+.w500 {
+  width: 500px;
+}
+
+/* Custom Height */
+.height-full {
+  height: 100%;
 }
 
 .unset-img-width { 
@@ -243,7 +259,7 @@
 /* Custom Borders */
 .divider {
   width: auto;
-  border-bottom: 1px solid $gray-primary;
+  border-bottom: 1px solid var(--gray-primary);
   padding: 0;
   margin: 0;
 }
@@ -257,6 +273,14 @@
   overflow: unset;
 }
 
+.overflow-visible {
+  overflow: visible !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
+
 .overflow-y-auto {
   overflow-y: auto !important;
 }
@@ -267,4 +291,88 @@
 
 .custom-width {
   width: 450px;
+}
+
+/* Display */
+.display--inline {
+  display: inline;
+}
+
+/* Custom Spacing */
+.spacing-inner-top-28 {
+  padding-top: 28px;
+}
+
+.padding-right-4 {
+  padding-right: 4px;
+}
+
+/* Image Utilities */
+.mx-image-width-unset {
+  .mx-image-viewer {
+    width: unset;
+  }
+}
+
+
+/* Module-specific styles for AgentCommons */
+
+.custom-control-label {
+  display: block;
+  overflow: hidden;
+  margin-bottom: var(--spacing-smaller);
+  text-align: left;
+  text-overflow: ellipsis;
+  color: var(--font-color-header);
+  font-size: var(--form-label-size);
+  font-weight: var(--form-label-weight);
+}
+
+.input-label-width {
+  min-width: 11vw;
+}
+
+.input-label-grid {
+  display: grid;
+  grid-template-columns: 150px auto 50px;
+}
+
+.test-variable-width {
+  width: 180px;
+  margin-right: var(--spacing-small);
+  padding-top: var(--spacing-small);
+}
+
+.info-icon {
+  margin: 0 0 0 var(--spacing-smaller);
+  padding: 0;
+  img {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.icon-info-wrapper {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}
+
+.scroll-to-multiple-output {
+  //only needed to use in JS-Action for scrolling to element
+}
+
+.scroll-to-single-output {
+  //only needed to use in JS-Action for scrolling to element
+}
+
+//used to hide a combobox but validation message can still be shown
+.combobox-hidden-with-validation {
+  .widget-combobox .widget-combobox-input-container {
+    display: none !important;
+  }
 }
