@@ -6,7 +6,7 @@
   flex-direction: column;
   min-height: 100%;
   height: -webkit-fill-available;
-  width: 95vw;
+  width: 85vw;
   max-width: 1600px;
   margin: 0 auto;
   overflow-y: auto;
@@ -27,19 +27,18 @@
   justify-content: center;
   align-items: center;
   min-height: 100%;
-  min-width: 100%;
   height: -webkit-fill-available;
   margin: 0 auto;
 
   .traces-breadcrumb {
-    width: 91vw;
     max-width: 1800px;
+    width: 85vw;
   }
 
   .traces-content {
     flex-direction: column;
-    width: 91vw;
     max-width: 1800px;
+    width: 85vw;
     height: 90vh;
 
     @media (max-width: 2000px) {
@@ -50,17 +49,14 @@
       flex-direction: column;
       height: 80vh;
     }
-      width: 91vw;
-      max-width: 1800px;
-      height: 90vh;
-
-      @media (max-width: 2000px) {
+  
+    @media (max-width: 2000px) {
         max-height: 84vh;
-      }
+    }
 
-      @media (max-width: 1400px) {
+    @media (max-width: 1400px) {
         max-height: 80vh;
-      }
+    }
 
     .card {
       border-radius: var(--spacing-medium);
@@ -243,7 +239,7 @@
     
 
     .agents-container--overview {
-        width: 91vw;
+        width: 85vw;
         max-width: 1800px;
         height: 90vh;
         flex-direction: column;

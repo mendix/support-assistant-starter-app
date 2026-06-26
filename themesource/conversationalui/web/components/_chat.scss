@@ -170,6 +170,10 @@
     }     
     &--assistant {
         margin-top: var(--spacing-small);
+        width: 100%;
+        > div {
+            width: inherit;
+        }
     }
 
     &--user {
@@ -249,7 +253,6 @@
     padding: 12px var(--spacing-medium);
     background-color: var(--chat-bg-light);
     color: var(--font-color-header);
-    opacity: 0.7;
     font-weight: var(--font-weight-normal);
     margin-bottom: var(--spacing-small);
     .tool-title {
