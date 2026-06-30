@@ -61,6 +61,10 @@
     .mx-image-viewer {
         width: fit-content;
         margin-right: 8px;
+        img {
+            min-width: $spacing-large; // prevents the model logo from resizing with longer titles.
+            min-height: $spacing-large;
+        }
     }
 }
 
