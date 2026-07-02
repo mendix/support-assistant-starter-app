@@ -17,7 +17,8 @@
     width: 100%;
     max-width: 100%;
     .widget-combobox-input-container-disabled {
-        border: 0;
+        border: 1;
+	border-color: var(--gray-primary)
     }
 }
 
