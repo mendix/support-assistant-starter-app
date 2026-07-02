@@ -18,3 +18,7 @@
 /agent builder starter app.mpr.bak
 /agent builder starter app.mpr.lock
 /mprcontents/mprjournal*
+theme-cache/web/theme.compiled.css
+theme-cache/web/theme.compiled.css.map
+modules/javasource/*/proxies/*
+modules/javasource/system/*
