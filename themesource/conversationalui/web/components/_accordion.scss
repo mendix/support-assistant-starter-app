@@ -13,14 +13,14 @@
                     &:hover,
                     &:focus,
                     &:active {
-                        color: $font-color-default;
+                        color: var(--font-color-default);
                         background: transparent;
                     }
                 }
                 .widget-accordion-group-header-button-icon {
                     align-self: left;
                     display: inline-flex;
-                    fill: $font-color-default;
+                    fill: var(--font-color-default);
                 }
             }      
         }
@@ -36,6 +36,7 @@
 ///// Accordion styling for accordions used inside a message bubble 
 ////////////////////////////////////////////////////////////////////
 .accordion-tool-calls {
+    width: 100%;
     .widget-accordion-group{
         background: transparent;
         border-bottom: none;
@@ -43,8 +44,12 @@
             .widget-accordion-group-header-button {
                 display: inline-flex;
                 background: transparent;
-                padding: $spacing-smaller;
+                padding: var(--spacing-smaller);
                 width: 100%;
+                .tool-title {
+                    font-weight: var(--font-weight-normal);
+                    color: var(--font-color-header);
+                }
                 .mx-image-viewer {
                     width: auto;
                 }
@@ -62,16 +67,24 @@
                 .widget-accordion-group-header-button-icon {
                     align-self: left;
                     display: inline-flex;
-                    fill: $font-color-default;
+                    fill: var(--font-color-default);
                 }
             }      
         }
         .widget-accordion-group-content-wrapper {
             .widget-accordion-group-content {
-                padding-left: 28px;
-                padding-right: 0;
-                padding-bottom: 0;
+                padding-left: 0px;
+                padding-right: 0px;
+                padding-bottom: var(--spacing-smaller);
+                color: var(--font-weight-normal);
                 font-weight: 400;
+                opacity: 60%;
+                .card {
+                    padding: 8px 16px;
+                    margin-bottom: 0;
+                    border-radius: var(--spacing-smaller);
+                    border: 1px solid var(--chat-border-color);
+                }
             }
         }
     }
