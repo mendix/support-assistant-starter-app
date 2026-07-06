@@ -1,3 +1,13 @@
+# ⚠️ Repository Deprecated
+
+> **This repository is deprecated and is no longer maintained.**
+
+This Mendix project is no longer managed through GitHub, and no new releases will be published in this repository.
+
+For the latest versions and future releases, please refer to the [**Mendix Marketplace**](https://marketplace.mendix.com/link/component/240369).
+
+------------------------------
+
 ## Introduction
 
 This starter app contains [Agent Commons](https://marketplace.mendix.com/link/component/240371) and all other dependencies needed to create agents. It is set up with a Support Agent template to show how it works. It allows developers and prompt engineers to collaborate and build agentic systems.
